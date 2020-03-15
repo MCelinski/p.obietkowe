@@ -241,7 +241,7 @@ void sortowanie(){
 int main()
 {
     int z;
-    cout << "Czy chcesz korzystac z istniejacego pliku?\n1.Tak\n2.Nie\n";
+    cout << "Czy chcesz korzystac z istniejacego pliku?\n1.Tak\n2.Nie (wybranie tej opcji spowoduje usuniecie istniejacej bazy)\n";
     cin >> z;
     if(z==1)
     plik();
@@ -251,7 +251,7 @@ int main()
     cout << "Co chcesz zrobic?\n1.Dodaj samochod\n2.Pokaz liste samochodow\n"
     "3.Odczytaj warunkowo\n4.Wyswietl konkretny samochod\n6.Usun konkretny samochod\n7.Posortuj Samochody po parametrze\n0. nic\n";
     cin >> n;
-    switch(n){  //MENU G£OWNE
+    switch(n){  //MENU G≈ÅOWNE
         case 1:
             samochod.zapis();
             samochody.push_back(samochod);
