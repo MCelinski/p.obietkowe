@@ -11,11 +11,13 @@ class Auta{     //KLASA SAMOCHODU
 
     string marka;
     string model;
+    int rocznik;
+    string skrzynia;
     float poj;
     int przebieg;
 
 
-
+public:
     void zapis(){    // ZAPIS DO WEKTORA
         system( "cls" );
         fstream dane;
@@ -37,6 +39,15 @@ class Auta{     //KLASA SAMOCHODU
         cin >> przebieg;
         dane  << przebieg << endl;
 
+
+        cout<<" Podaj rocznik:";
+        cin>>rocznik;
+        dane<<rocznik<<endl;
+
+        cout << " Podaj rodzaj skrzyni biegow:";
+        cin >> skrzynia;
+        dane  << skrzynia << endl;
+
     dane.close();
     }
 };
@@ -54,6 +65,8 @@ void plik(){ //ODCZYT Z PLIKU
         dane >> samochod.model ;
         dane >> samochod.poj  ;
         dane >> samochod.przebieg ;
+        dane >> samochod.rocznik;
+        dane >> samochod.skrzynia;
         samochody.push_back(samochod);
 
     }
@@ -64,6 +77,7 @@ void plik(){ //ODCZYT Z PLIKU
 void odczyt(){  //ODCZYT Z WEKTORA
         system( "cls" );
         dane.open("dane.txt", ios::out);
+        cout<<"Marka Model Poj Przebieg rocznik typ skrzyni \n";
         for(int i=0;i<samochody.size();i++)
         {
                     cout << endl;
@@ -71,6 +85,8 @@ void odczyt(){  //ODCZYT Z WEKTORA
                     cout << samochody[i].model << " ";
                     cout << samochody[i].poj << " ";
                     cout << samochody[i].przebieg << " ";
+                    cout << samochody[i].rocznik << " ";
+                    cout << samochody[i].skrzynia << " ";
         }
         dane.close();
         getch();
@@ -101,6 +117,8 @@ void odczytw(){  //ODCZYT WARUNKOWY Z WEKTORA
                     cout << samochody[i].model << " ";
                     cout << samochody[i].poj << " ";
                     cout << samochody[i].przebieg << " ";
+                    cout << samochody[i].rocznik << " ";
+                    cout << samochody[i].skrzynia << " ";
                     }
                  }
                  }
@@ -119,6 +137,8 @@ void odczytw(){  //ODCZYT WARUNKOWY Z WEKTORA
                     cout << samochody[i].model << " ";
                     cout << samochody[i].poj << " ";
                     cout << samochody[i].przebieg << " ";
+                    cout << samochody[i].rocznik << " ";
+                    cout << samochody[i].skrzynia << " ";
                     }
                  }
                  }
@@ -139,6 +159,9 @@ void odczytw(){  //ODCZYT WARUNKOWY Z WEKTORA
                     cout << samochody[i].model << " ";
                     cout << samochody[i].poj << " ";
                     cout << samochody[i].przebieg << " ";
+                    cout << samochody[i].rocznik << " ";
+                    cout << samochody[i].skrzynia << " ";
+
                     }
                  }
                  }
@@ -155,6 +178,8 @@ void odczytw(){  //ODCZYT WARUNKOWY Z WEKTORA
                     cout << samochody[i].model << endl;
                     cout << samochody[i].poj << endl;
                     cout << samochody[i].przebieg << endl;
+                    cout << samochody[i].rocznik << " ";
+                    cout << samochody[i].skrzynia << " ";
                     }
                  }
                  }
@@ -178,6 +203,8 @@ void odczytk(){     //ODCZYT KONKRETNEGO SAMOCHODU
     cout << samochody[x].model << " ";
     cout << samochody[x].poj << " ";
     cout << samochody[x].przebieg << " ";
+    cout << samochody[x].rocznik << " ";
+    cout << samochody[x].skrzynia << " ";
     return;
 }
 
@@ -194,6 +221,8 @@ void zapis(){   //ZAPIS DO PLIKU (RESET PLIKU)
         dane  << samochody[i].model << " ";
         dane  << samochody[i].poj << " " ;
         dane  << samochody[i].przebieg << " ";
+        dane  << samochody[i].rocznik << " ";
+        dane  << samochody[i].skrzynia << " ";
         dane << endl;
         }
     dane.close();
@@ -241,7 +270,7 @@ void sortowanie(){
 int main()
 {
     int z;
-    cout << "Czy chcesz korzystac z istniejacego pliku?\n1.Tak\n2.Nie (wybranie tej opcji spowoduje usuniecie istniejacej bazy)\n";
+   cout << "Czy chcesz korzystac z istniejacego pliku?\n1.Tak\n2.Nie (wybranie tej opcji spowoduje usuniecie istniejacej bazy)\n";
     cin >> z;
     if(z==1)
     plik();
@@ -251,13 +280,14 @@ int main()
     cout << "Co chcesz zrobic?\n1.Dodaj samochod\n2.Pokaz liste samochodow\n"
     "3.Odczytaj warunkowo\n4.Wyswietl konkretny samochod\n6.Usun konkretny samochod\n7.Posortuj Samochody po parametrze\n0. nic\n";
     cin >> n;
-    switch(n){  //MENU G≈ÅOWNE
+    switch(n){  //MENU G£OWNE
         case 1:
             samochod.zapis();
             samochody.push_back(samochod);
             system( "cls" );
             break;
         case 2:
+
             odczyt();
 
             break;
